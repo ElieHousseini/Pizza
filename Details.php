@@ -63,7 +63,7 @@ if(isset($_GET['id'])){
     <p><?php echo htmlspecialchars($pizza['ingredients']); ?></p>
 
     <!-- DETELE FORM -->
-    <form action="Details.php" method = "POST">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST">
       <input type = "hidden" name = "id_to_delete" value = "<?php echo $pizza['id'] ?>" >
       <input type="submit" name="delete" value="Delete" class = 'btn brand z-depth-0'>
     </form>

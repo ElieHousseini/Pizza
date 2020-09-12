@@ -33,21 +33,18 @@
 
 
 <!DOCTYPE html>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="Styles.css" type="text/css">
+
 
 <?php include('Components/Header.php'); ?>
 
   <h4 class="center grey-text">Pizzas!</h4>
-
   <div class="container">
 
-    <div class="row">
+<div class="row">
 
       <?php foreach($pizzas as $pizza): ?>
 
-        <div class="col s6 md3">
+   <div class="col s6 md3">
           <div class="card z-depth-0">
             <div class="card-content center">
               <h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
@@ -58,13 +55,15 @@
               </ul>
             </div>
             <div class = 'card-action right-align'>
-              <a href="#" class="brand-text">more info</a>
+              <a class="brand-text" href="Details.php?id=<?php echo $pizza['id']?>" >
+              more info
+              </a>
             </div>
           </div>
         </div>
 
       <?php endforeach; ?>
-                  
+
       <?php 
       if(count($pizzas) >= 3): ?>
         <?php  return false?>
@@ -73,9 +72,9 @@
           <p>There are less than 3 pizzas</p>
       <?php endif ?>
     </div>
-
+    <?php include('Components/Footer.php'); ?> 
   </div>
 
-<?php include('Components/Footer.php'); ?>
+
 
 </html>
